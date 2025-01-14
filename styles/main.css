@@ -19,6 +19,37 @@ body {
   max-width: 430px;
 }
 
+.container_scores {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 90px;
+  /* border: 1px solid #555; */
+  margin-bottom: 50px;
+}
+
+.score_palyer {
+  width: 100px;
+  height: 70px;
+  /* border: 1px solid #555; */
+}
+
+.player_marker,
+.score_value {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid #555; */
+  color: rgb(189, 182, 182);
+  font-size: 24px;
+}
+
+.score_value {
+  font-size: 16px;
+}
+
 
 .playground_grid {
   display: grid;
@@ -49,13 +80,15 @@ body {
 }
 
 .notifications {
-  position: absolute;
-  top: 150px;
+  /* position: absolute;
+  top: 150px; */
   width: 100%;
+  height: 60px;
   font-size: 35px;
   text-align: center;
   padding: 10px 0;
   color: rgb(189, 182, 182);
+  margin-bottom: 30px;
 }
 
 .winner_cell {
@@ -68,7 +101,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 70px;
 }
 
 .box_active_player_display {

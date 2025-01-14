@@ -30,6 +30,7 @@ let current_marker = 'x' // Текущий маркер игрока, первы
 let players_moves = [[], []] // Ходы игроков, сохраняются все ходы игроков, игрок Х в нулевой элемент массива, игрок 0 в певый элеиент массива. 
 let current_player = 0 // ппеременная текущего активного игрока, 0 соответтсует ходу играка "Х", 1 соответствует "0"
 let game_status = true // статус игры, после победы статус меняется на false и ходить больше нельзя
+let players_wins_scores = [[], []] // сохранение количества победных раундов для каждого игрока, игрок Х в нулевой элемент массива, игрок 0 в певый элеиент массива. 
 
 
 
@@ -127,6 +128,7 @@ const switch_player = function () {
 
 }
 
+
 const check_victory = function (player_steps_arr) {
 
   winning_combinations.forEach(function (combination) {
@@ -148,6 +150,9 @@ const check_victory = function (player_steps_arr) {
           // убираем выделение активного игрока из тоггла 
           switch_active_user_toggle('')
 
+          players_wins_scores[current_player].push('+')
+          display_players_scores(current_player, players_wins_scores[current_player])
+
         } else {
           display_notifications('Player 0 win')
           highlight_winning_streak(combination[0], combination[1], combination[2])
@@ -155,6 +160,9 @@ const check_victory = function (player_steps_arr) {
 
           // убираем выделение активного игрока из тоггла 
           switch_active_user_toggle('')
+
+          players_wins_scores[current_player].push('+')
+          display_players_scores(current_player, players_wins_scores[current_player])
 
         }
 
@@ -244,6 +252,15 @@ const highlight_winning_streak = function (id1, id2, id3) {
   document.getElementById(id3).classList.add('winner_cell')
 
 }
+
+const display_players_scores = function (id, scores_arr) {
+
+  const score = scores_arr.length
+
+  document.querySelector(`[score_pl="${id}"]`).textContent = `${score} wins`
+
+}
+
 
 
 
