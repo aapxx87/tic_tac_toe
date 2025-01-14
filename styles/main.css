@@ -81,8 +81,9 @@ body {
   left: 60px; */
   padding: 10px 10px;
   background-color: transparent;
-  color: rgb(189, 182, 182);
+  color: rgb(133, 133, 133);
   border: 1px solid #555;
+  border-radius: 5px;
   margin-bottom: 30px;
 }
 
