@@ -15,6 +15,7 @@ body {
 }
 
 .app {
+  position: relative;
   max-width: 430px;
 }
 
@@ -59,4 +60,34 @@ body {
 
 .winner_cell {
   background-color: rgb(63, 125, 44);
+}
+
+.box_active_player_display {
+  display: flex;
+  position: absolute;
+  bottom: -70px;
+  width: 80px;
+  left: 105px;
+  /* height: 30px; */
+  border-radius: 20px;
+  border: 1px solid gray;
+  color: rgb(189, 182, 182);
+}
+
+.player_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  /* border: 1px solid gray; */
+  border-radius: 50%;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.active_player_marker {
+  background: rgb(162, 162, 162);
+  color: rgb(70, 69, 69);
+  transition: .3s;
 }

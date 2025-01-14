@@ -77,7 +77,7 @@ const handling_player_step = function () {
 
         remove_first_step(players_moves[current_player])
 
-        display_notifications(`${current_player === 0 ? 'O' : 'X'} step`)
+        switch_active_user_toggle(`${current_player === 0 ? '0' : '1'}`)
 
         check_victory(players_moves[current_player])
 
@@ -142,14 +142,19 @@ const check_victory = function (player_steps_arr) {
 
         if (current_player === 0) {
           display_notifications('Player X win')
+          highlight_winning_streak(combination[0], combination[1], combination[2])
           game_status = false
 
-          highlight_winning_streak(combination[0], combination[1], combination[2])
+          // убираем выделение активного игрока из тоггла 
+          switch_active_user_toggle('')
 
         } else {
           display_notifications('Player 0 win')
           highlight_winning_streak(combination[0], combination[1], combination[2])
           game_status = false
+
+          // убираем выделение активного игрока из тоггла 
+          switch_active_user_toggle('')
 
         }
 
@@ -167,7 +172,6 @@ const check_victory = function (player_steps_arr) {
 
 
 // ?----- ЛОГИКА СБРОСА ИГРЫ ----- 
-
 
 
 const reset_cells = function () {
@@ -191,13 +195,17 @@ const reset_state = function () {
     [],
     []
   ]
-  display_notifications('X step')
+
+  display_notifications('')
 
 }
 
 const reset_game = function () {
   reset_state()
   reset_cells()
+
+  switch_active_user_toggle('1')
+
 }
 
 
@@ -207,6 +215,27 @@ const reset_game = function () {
 const display_notifications = function (notification_text) {
   container_notifications.textContent = notification_text
 }
+
+
+const switch_active_user_toggle = function (id) {
+
+  // при победе одного из игроков, убираем класс в обоих частя тоггла, становитяс не актвиным 
+  if (!id) {
+    document.getElementById('0').classList.remove('active_player_marker')
+    document.getElementById('1').classList.remove('active_player_marker')
+  }
+
+  if (id === "0") {
+    document.getElementById('0').classList.remove('active_player_marker')
+    document.getElementById('1').classList.add('active_player_marker')
+  } else if (id === "1") {
+    document.getElementById('0').classList.add('active_player_marker')
+    document.getElementById('1').classList.remove('active_player_marker')
+  }
+
+}
+
+
 
 const highlight_winning_streak = function (id1, id2, id3) {
 
@@ -232,8 +261,6 @@ create_playground_grid() // Создаём игровое поле
 const arr__cells = document.querySelectorAll('.cell') // Сохраняем клетки
 
 handling_player_step() // Подключаем обработчики для ходов по клеткам
-
-display_notifications('X step') // Отображаем уведомление о первом ходе
 
 
 
