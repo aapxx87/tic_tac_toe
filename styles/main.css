@@ -14,6 +14,13 @@ body {
   position: relative;
 }
 
+.container_buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 430px;
+}
+
 .app {
   position: relative;
   max-width: 430px;
@@ -69,9 +76,9 @@ body {
 }
 
 .btn {
-  position: absolute;
+  /* position: absolute;
   top: 40px;
-  left: 60px;
+  left: 60px; */
   padding: 10px 10px;
   background-color: transparent;
   color: rgb(189, 182, 182);

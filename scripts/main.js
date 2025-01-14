@@ -3,6 +3,7 @@
 const container_playground_grid = document.querySelector('.playground_grid')
 const container_notifications = document.querySelector('.notifications')
 const btn__new_game = document.querySelector('.btn_new_game')
+const btn__reset_game = document.querySelector('.btn_reset_game')
 
 
 
@@ -267,6 +268,18 @@ const display_players_scores = function (id, scores_arr) {
 // ?----- Event Listeners ----- 
 
 btn__new_game.addEventListener('click', reset_game)
+
+
+btn__reset_game.addEventListener('click', function () {
+  reset_game()
+
+  players_wins_scores[0] = []
+  players_wins_scores[1] = []
+
+  display_players_scores(0, players_wins_scores[0])
+  display_players_scores(1, players_wins_scores[1])
+
+})
 
 
 
