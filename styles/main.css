@@ -62,6 +62,9 @@ body {
   background-color: rgb(63, 125, 44);
 }
 
+
+.container_toggle {}
+
 .box_active_player_display {
   display: flex;
   position: absolute;
@@ -70,7 +73,7 @@ body {
   left: 105px;
   /* height: 30px; */
   border-radius: 20px;
-  border: 1px solid gray;
+  border: 1px solid rgba(128, 128, 128, .3);
   color: rgb(189, 182, 182);
 }
 
